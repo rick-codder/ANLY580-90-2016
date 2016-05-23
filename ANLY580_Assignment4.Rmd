@@ -47,6 +47,47 @@ treemap(GNI2014,                     # data frme
 
 
 ## Olayemi	Adejumo
+
+The code below outputs a vis which has an included simple dataset. A pie chart, which shows the breakdown of the shares of mobile phone manufacturers in the US cellphone market. This also includes the percentage values in the appropriate portions. Additionally, the names of the manufacturers are added next to the portions. 
+
+``` {r, echo=TRUE }
+library(ggplot2)
+#market share data frame for cellphone market in the US
+MarketShare <- data.frame(
+  Company = c("Apple", "Samsung", "LG", "Motorola", "Others"), 
+  Share = c(49, 25, 10, 7, 9))
+
+y_breaks <- cumsum(MarketShare$Share) - MarketShare$Share/2 #
+y_labels <- c("Apple", "Samsung", "LG", "Motorola", "Others") 
+
+cum <- cumsum(MarketShare$Share)
+
+y_percentage = c(49, 25, 10, 7, 9)
+
+#created a ggplot object with geom_bar 
+MarketShare_plot <- ggplot(MarketShare, aes(x = factor(1), y = Share, fill = Company)) +
+  geom_bar(width = 1, colour = "white", stat = "identity") + 
+  guides(fill = FALSE) + 
+  geom_text(aes(x = 1.70, y = y_breaks,
+                label = y_labels, hjust = c(0.5, 0.5, NA, NA, 1)), size = 4) + # for adding company labels
+  geom_text(aes(x = 1.2, y = y_breaks, label = paste0(y_percentage, "%")), 
+            size = 4, , colour = "white") + #allows percentage values to be be place in relevant portion of the chart
+  coord_polar(theta = "y", start = 0) + # for generating piechart
+  ggtitle("US CellPhone Market Share") +  #for inserting chart title
+  theme_light() + # Plot theme configuration from axis titlt to margins
+  theme(panel.grid.minor = element_blank(), 
+        panel.grid.major = element_blank(), 
+        panel.border = element_blank(),
+        plot.margin = unit(c(0, 0, 0.5, 0),"cm"),
+        plot.title = element_text(size = rel(1.2), face = "bold", vjust = 4.5),
+        axis.title = element_blank(), 
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+
+MarketShare_plot 
+
+```
+
 ## Isaac	Cyril
 
 Below is my example with four box plots using the `iris` dataset, which gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica. 
