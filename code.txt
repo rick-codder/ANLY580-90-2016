@@ -1,0 +1,45 @@
+<Window x:Class="WPFWin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFWin"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Closed="Window_Closed" Closing="Window_Closing" MouseMove="Window_MouseMove" KeyDown="Window_KeyDown">
+    <!--Background="#FF4B4040"-->
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                <GradientStop Color="#FF4B4040" Offset="0.4"/>
+                <GradientStop Color="#FF3E3434" Offset="0.001"/>
+                <GradientStop Color="#FF2D2534" Offset="1.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Rectangle></Rectangle>
+        <Label></Label>
+        <Label Name="ClickMe" Height="20" Width="50" FontSize="40" Margin="0,0,106,-100" BorderBrush="#FF4B4040">
+            <Label.Background>
+            <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                    <GradientStop Color="DarkGoldenrod" Offset="0.87"/>
+                    <GradientStop Color="Gold" Offset="0.0001"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Name="ClickBe" Height="20" Width="50"  FontSize="40"  Margin="0,0,0,-100" BorderBrush="#FF4B4040">
+            <Label.Background>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                    <GradientStop Color="DarkRed" Offset="0.87"/>
+                    <GradientStop Color="Red" Offset="0.0001"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Name="ClickCe" Height="20" Width="50" FontSize="40" Margin="105,0,0,-100" BorderBrush="#FF4B4040">
+            <Label.Background>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                    <GradientStop Color="DarkBlue" Offset="0.87"/>
+                    <GradientStop Color="Blue" Offset="0.0001"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+    </Grid>
+</Window>
