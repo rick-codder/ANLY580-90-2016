@@ -1,0 +1,53 @@
+	UPDATE SET 
+		ProductTypeID					= IIF(SRC.CodeID IS NULL, SRC.ProdTypeID					, TGT.ProductTypeID)
+		,DataSourceID					= IIF(SRC.CodeID IS NULL, SRC.DataSourceID					, TGT.DataSourceID)
+		,CPAccountID					= IIF(SRC.CodeID IS NULL, SRC.CP_ID							, TGT.CPAccountID)
+		,TradingAccountID				= IIF(SRC.CodeID IS NULL, SRC.TradeBookID					, TGT.TradingAccountID)
+		,TradeStatusID					= IIF(SRC.CodeID	IS NOT NULL 
+											AND TGT.bActive	= 0
+																, TGT.TradeStatusID					, SRC.TradeStatusID)
+		,bActive						= SRC.Active
+		,bInternal						= IIF(SRC.CodeID IS NULL, SRC.Internal						, TGT.bInternal)
+		,dtTrade						= IIF(SRC.CodeID IS NULL, SRC.M_TP_DTETRN					, TGT.dtTrade)
+		,dtEffective					= IIF(SRC.CodeID IS NULL, SRC.dtEffective					, TGT.dtEffective)
+		,dtMaturity						= IIF(SRC.CodeID IS NULL, SRC.dtMaturity					, TGT.dtMaturity)
+		,dtUnadjustedMaturity			= IIF(SRC.CodeID IS NULL, SRC.dtUnadjustedMaturity			, TGT.dtUnadjustedMaturity)
+		,sCurrency						= IIF(SRC.CodeID IS NULL, SRC.sCurrency						, TGT.sCurrency)
+		,dNotional						= IIF(SRC.CodeID IS NULL, SRC.dNotional						, TGT.dNotional)
+		,dtCleared						= IIF(SRC.CodeID IS NULL, SRC.dtCleared						, TGT.dtCleared)
+		,OriginalCPAccountID			= IIF(SRC.CodeID IS NULL, SRC.OriginalCPAccountID			, TGT.OriginalCPAccountID)
+		,ParentTransactionID			= IIF(SRC.CodeID IS NULL, SRC.ParentTransactionID			, TGT.ParentTransactionID)
+		,bCleared						= IIF(SRC.CodeID IS NULL, SRC.Cleared						, TGT.bCleared)
+		,sClearingBroker				= IIF(SRC.CodeID IS NULL, SRC.sClearingBroker				, TGT.sClearingBroker)
+		,RiskProductTypeID				= IIF(SRC.CodeID IS NULL, SRC.RiskProductTypeID				, TGT.RiskProductTypeID)
+		,ClearingBrokerID				= IIF(SRC.CodeID IS NULL, SRC.ClearingBrokerID				, TGT.ClearingBrokerID)
+		,OriginatorID					= IIF(SRC.CodeID IS NULL, SRC.OriginatorID					, TGT.OriginatorID)
+		,sStrategy						= IIF(SRC.CodeID IS NULL, SRC.sStrategy						, TGT.sStrategy)
+		,bSIMMEligible					= IIF(SRC.CodeID IS NULL, SRC.bSIMMEligible					, TGT.bSIMMEligible)
+		,CollateralAgreementID			= IIF(SRC.CodeID IS NULL, SRC.CollateralAgreementID			, TGT.CollateralAgreementID)
+		,bAffiliate						= IIF(SRC.CodeID IS NULL, SRC.bAffiliate					, TGT.bAffiliate)
+		,dtClearingTimestamp			= IIF(SRC.CodeID IS NULL, SRC.dtClearingTimestamp			, TGT.dtClearingTimestamp)
+		,dtConfirmationTimestamp		= IIF(SRC.CodeID IS NULL, SRC.dtConfirmationTimestamp		, TGT.dtConfirmationTimestamp)
+		,dtExecutionTimestamp			= IIF(SRC.CodeID IS NULL, SRC.dtExecutionTimestamp			, TGT.dtExecutionTimestamp)
+		,ContractKey					= IIF(SRC.CodeID IS NULL, SRC.ContractKey					, TGT.ContractKey)
+		,ContractVersion				= SRC.ContractVersion
+		,dtModification					= CASE
+											WHEN TGT.bActive = SRC.Active AND TGT.bActive = 1 THEN SRC.dtModification 
+											WHEN TGT.bActive = SRC.Active AND TGT.bActive = 0 THEN TGT.dtModification
+											ELSE SRC.M_H_DATA_DT2 END
+		,sTrader						= IIF(SRC.CodeID IS NULL, SRC.sTrader						, TGT.sTrader)
+		,bMutualBreak					= IIF(SRC.CodeID IS NULL, SRC.bMutualBreak					, TGT.bMutualBreak)
+		,dtMutualMandatoryTermination	= IIF(SRC.CodeID IS NULL, SRC.dtMutualMandatoryTermination	, TGT.dtMutualMandatoryTermination)
+		,CancellableByID				= IIF(SRC.CodeID IS NULL, SRC.CancellableByID				, TGT.CancellableByID)
+		,CancelTypeID					= IIF(SRC.CodeID IS NULL, SRC.CancelTypeID					, TGT.CancelTypeID)
+		,BreakTypeID					= IIF(SRC.CodeID IS NULL, SRC.BreakTypeID					, TGT.BreakTypeID)
+		,OurCollateralizationTypeID		= IIF(SRC.CodeID IS NULL, SRC.OurCollateralizationTypeID	, TGT.OurCollateralizationTypeID)
+		,CtpCollateralizationTypeID		= IIF(SRC.CodeID IS NULL, SRC.CtpCollateralizationTypeID	, TGT.CtpCollateralizationTypeID)
+		,sExecutionVenue				= IIF(SRC.CodeID IS NULL, SRC.sExecutionVenue				, TGT.sExecutionVenue)
+		,sLastEventName					= IIF(SRC.CodeID IS NULL, SRC.sLastEventName				, TGT.sLastEventName)
+		,sMXGeneratorLabel				= IIF(SRC.CodeID IS NULL, SRC.sMXGeneratorLabel				, TGT.sMXGeneratorLabel)
+		,BrokerAccountID				= IIF(SRC.CodeID IS NULL, SRC.BrokerAccountID				, TGT.BrokerAccountID)
+		,bCOF							= IIF(SRC.CodeID IS NULL, SRC.bCOF							, TGT.bCOF)
+
+
+
