@@ -1,6 +1,8 @@
 # ANLY580-90-2016
 Special Topics: Data Visualization
 
+https://www.darrellduffie.com/uploads/surveys/DuffieCanabarro2004.pdf
+
 This is a GitHub repo for use in my class.  We are working on building familiarity and experience with social coding tools. 
 
 https://mdsservices.dealogic.com/Router/MDS/1/ChangeStore/Change/Latest 
