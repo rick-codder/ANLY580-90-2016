@@ -1,6 +1,8 @@
 # ANLY580-90-2016
 Special Topics: Data Visualization
 
+http://www.visualbricks.com/frtb.html
+
 https://www.darrellduffie.com/uploads/surveys/DuffieCanabarro2004.pdf
 
 This is a GitHub repo for use in my class.  We are working on building familiarity and experience with social coding tools. 
